@@ -12,7 +12,7 @@
 
 
 
-<table>
+<table class="table table-hover table-sm table-striped table-bordered">
     <thead>
         <tr>
             <td>Available Time Slots</td>
@@ -21,11 +21,21 @@
     </thead>
 
     <tbody>
+        @foreach (var x in Model)
         {
             <tr>
-                <td>Monday 8am</td>
                 <td>
-                    <NavLink class="btn btn-sm btn-warning active" href="/413Project2/Views/Home/Form">Select</NavLink>
+                    @if (x.TimeSlotAvailable == true)
+                {
+                    @x.TimeSlotName
+                }
+                    else
+                {
+                    @x.TimeSlotId
+                }
+                </td>
+                <td>
+                    <button class="btn btn-sm" asp-controller="Home" asp-action="Form">Select</button>
                 </td>
             </tr>
         }

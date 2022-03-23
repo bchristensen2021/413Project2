@@ -6,16 +6,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using _413Project2.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace _413Project2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        private ToursDbContext tsContext { get; set; }
+
+        public HomeController(ToursDbContext someName)
         {
-            _logger = logger;
+            tsContext = someName;
         }
 
         public IActionResult Index()
@@ -25,13 +33,18 @@ namespace _413Project2.Controllers
 
         public IActionResult Signup()
         {
-            var timeslots = ToursDbContext.TimeSlots.ToList();
+            var timeslots = tsContext.TimeSlots.ToList();
             return View();
         }
-
+        
         public IActionResult ScheduledTours()
         {
             return View();
+        }
+
+        public IActionResult Form()
+        {
+            return View("Form");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
