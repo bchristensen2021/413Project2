@@ -34,7 +34,7 @@ namespace _413Project2.Controllers
         public IActionResult Signup()
         {
             var timeslots = tsContext.TimeSlots.ToList();
-            return View();
+            return View(timeslots);
         }
         
         public IActionResult ScheduledTours()
@@ -44,7 +44,7 @@ namespace _413Project2.Controllers
 
         public IActionResult Form()
         {
-            return View("Form");
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
