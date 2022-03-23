@@ -2,8 +2,47 @@
     ViewData["Title"] = "Signup";
 }
 
-@model List<TimeSlots>
+@model TimeSlots
 
 <h3>Select tour from the available days and times</h3>
 
-<!-- I built the models hopefully in a way that will allow this page to be built with the buttons labeling the actual day and time like "Monday 8am" and the value can be linked to the TimeSlotId = 1. Hopefully that makes sense. -->
+<!-- I built the models hopefully in a way that will allow this page to be built with the buttons 
+    labeling the actual day and time like "Monday 8am" and the value can be linked to the 
+    TimeSlotId = 1. Hopefully that makes sense. -->
+
+@*<div>
+    <form>
+
+        <label asp-for="DaySlotAvailable">Choose an available day: </label>
+        <select asp-for="DaySlotAvailable">
+            <option>Sunday</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+
+        </select>
+        <br />
+        <label asp-for="TimeSlotAvailable">Choose an available time: </label>
+        <select asp-for="TimeSlotAvailable">
+            <option>8am</option>
+            <option>9am</option>
+            <option>10am</option>
+            <option>11am</option>
+        </select>
+
+    </form>
+</div>*@
+
+<table>
+    <thead>
+        <td>Available Time Slots</td>
+        <td>Select One</td>
+    </thead>
+
+    <tbody>
+        @foreach 
+    </tbody>
+</table>
