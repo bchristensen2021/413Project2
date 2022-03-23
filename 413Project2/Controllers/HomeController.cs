@@ -25,6 +25,7 @@ namespace _413Project2.Controllers
 
         public IActionResult Signup()
         {
+            var timeslots = ToursDbContext.TimeSlots.ToList();
             return View();
         }
 

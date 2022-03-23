@@ -2,7 +2,7 @@
     ViewData["Title"] = "Signup";
 }
 
-@model TimeSlots
+@model List<TimeSlots>
 
 <h3>Select tour from the available days and times</h3>
 
@@ -10,39 +10,24 @@
     labeling the actual day and time like "Monday 8am" and the value can be linked to the 
     TimeSlotId = 1. Hopefully that makes sense. -->
 
-@*<div>
-    <form>
 
-        <label asp-for="DaySlotAvailable">Choose an available day: </label>
-        <select asp-for="DaySlotAvailable">
-            <option>Sunday</option>
-            <option>Monday</option>
-            <option>Tuesday</option>
-            <option>Wednesday</option>
-            <option>Thursday</option>
-            <option>Friday</option>
-            <option>Saturday</option>
-
-        </select>
-        <br />
-        <label asp-for="TimeSlotAvailable">Choose an available time: </label>
-        <select asp-for="TimeSlotAvailable">
-            <option>8am</option>
-            <option>9am</option>
-            <option>10am</option>
-            <option>11am</option>
-        </select>
-
-    </form>
-</div>*@
 
 <table>
     <thead>
-        <td>Available Time Slots</td>
-        <td>Select One</td>
+        <tr>
+            <td>Available Time Slots</td>
+            <td>Select One</td>
+        </tr>
     </thead>
 
     <tbody>
-        @foreach 
+        {
+            <tr>
+                <td>Monday 8am</td>
+                <td>
+                    <NavLink class="btn btn-sm btn-warning active" href="/413Project2/Views/Home/Form">Select</NavLink>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
