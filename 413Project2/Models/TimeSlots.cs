@@ -45,7 +45,7 @@ namespace _413Project2.Models
         //public bool Wednesday9am { get; set; }
         //public bool Wednesday10am { get; set; }
         //public bool Wednesday11am { get; set; }
-        //public bool Wednesday12pm { get; set; }
+        ////public bool Wednesday12pm { get; set; }
         //public bool Wednesday1pm { get; set; }
         //public bool Wednesday2pm { get; set; }
         //public bool Wednesday3pm { get; set; }
@@ -71,7 +71,7 @@ namespace _413Project2.Models
 
         //public bool Friday8am { get; set; }
         //public bool Friday9am { get; set; }
-        //public bool Friday10am { get; set; }
+        
         //public bool Friday11am { get; set; }
         //public bool Friday12pm { get; set; }
         //public bool Friday1pm { get; set; }
@@ -94,21 +94,20 @@ namespace _413Project2.Models
         //public bool Saturday4pm { get; set; }
         //public bool Saturday5pm { get; set; }
         //public bool Saturday6pm { get; set; }
-        //public bool Saturday7pm { get; set; }
+       // public bool Saturday7pm { get; set; }
         //public bool Saturday8pm { get; set; }
 
-        //public bool Sunday8am { get; set; }
-        //public bool Sunday9am { get; set; }
-        //public bool Sunday10am { get; set; }
-        //public bool Sunday11am { get; set; }
-        //public bool Sunday12pm { get; set; }
-        //public bool Sunday1pm { get; set; }
-        //public bool Sunday2pm { get; set; }
-        //public bool Sunday3pm { get; set; }
-        //public bool Sunday4pm { get; set; }
-        //public bool Sunday5pm { get; set; }
-        //public bool Sunday6pm { get; set; }
-        //public bool Sunday7pm { get; set; }
-        //public bool Sunday8pm { get; set; }
+      //  public bool Sunday8am { get; set; }
+      //  public bool Sunday9am { get; set; }
+      //  public bool Sunday11am { get; set; }
+       // public bool Sunday12pm { get; set; }
+      //  public bool Sunday1pm { get; set; }
+      //  public bool Sunday2pm { get; set; }
+      //  public bool Sunday3pm { get; set; }
+       // public bool Sunday4pm { get; set; }
+      //  public bool Sunday5pm { get; set; }
+      //  public bool Sunday6pm { get; set; }
+      //  public bool Sunday7pm { get; set; }
+       // public bool Sunday8pm { get; set; }
     }
 }
