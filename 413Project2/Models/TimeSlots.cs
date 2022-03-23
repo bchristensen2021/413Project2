@@ -9,9 +9,8 @@ namespace _413Project2.Models
         [Required]
         public int TimeSlotId { get; set; }
 
-        public bool DaySlotAvailable { get; set; }
-
         public bool TimeSlotAvailable { get; set; }
+        public string TimeSlotName { get; set; }
 
         //public bool Monday8am { get; set; }
         //public bool Monday9am { get; set; }
