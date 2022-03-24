@@ -21,6 +21,7 @@
     </thead>
 
     <tbody>
+
         @foreach (var x in Model)
         {
             <tr>
@@ -35,9 +36,10 @@
                 }
                 </td>
                 <td>
-                    <button class="btn btn-sm" asp-controller="Home" asp-action="Form">Select</button>
+                    <a class="nav-link text-dark" asp-controller="Home" asp-action="Form" asp-route-timeslotid="@x.TimeSlotId">Select</a>                
                 </td>
             </tr>
         }
+
     </tbody>
 </table>
