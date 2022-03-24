@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using _413Project2.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace _413Project2.Controllers
 {
     public class HomeController : Controller
@@ -18,6 +19,8 @@ namespace _413Project2.Controllers
         //{
         //    _logger = logger;
         //}
+
+   
 
         private ToursDbContext tsContext { get; set; }
 
@@ -33,8 +36,10 @@ namespace _413Project2.Controllers
 
         public IActionResult Signup()
         {
-            var timeslots = tsContext.TimeSlots.ToList();
-            return View(timeslots);
+            //var timeslots = tsContext.TimeSlots.ToList();
+            //return View(timeslots);
+            var appointments = tsContext.TimeSlots.ToList();
+            return View(appointments);
         }
         
         public IActionResult ScheduledTours()
@@ -42,9 +47,38 @@ namespace _413Project2.Controllers
             return View();
         }
 
-        public IActionResult Form()
+        //This is the get action
+        [HttpGet]
+        public IActionResult Form(int timeslotid)
         {
-            return View();
+
+            ViewBag.TimeSlots = tsContext.TimeSlots.ToList();
+          
+
+            return View("Form");
+        }
+
+        //This is the post action
+        [HttpPost]
+        public IActionResult Form(AppointmentInfo ai, int timeslotid)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.TimeSlots = tsContext.TimeSlots.ToList();
+                
+                tsContext.Add(ai);
+                
+                tsContext.SaveChanges();         
+              
+                return View("Index");
+            }
+            else //if invalid
+            {
+                ViewBag.TimeSlots = tsContext.TimeSlots.ToList();
+
+                return View();
+            }
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -52,5 +86,44 @@ namespace _413Project2.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        //This function recieves the id of the user-selected record
+        [HttpGet]
+        public IActionResult Edit(int appid)
+        {
+            ViewBag.TimeSlots = tsContext.TimeSlots.ToList();
+
+            var form = tsContext.AppointmentInfo.Single(x => x.AppId == appid);
+
+            return View("Form", form);
+        }
+
+        //This function recieves the response of form
+        [HttpPost]
+        public IActionResult Edit(AppointmentInfo blah)
+        {
+            tsContext.Update(blah);
+            tsContext.SaveChanges();
+            return RedirectToAction("Signup");
+        }
+
+        //This function recieves the id of the user-selected record
+        [HttpGet]
+        public IActionResult Delete(int appointmentid)
+        {
+            var application = tsContext.AppointmentInfo.Single(x => x.AppId == appointmentid);
+
+            return View(application);
+        }
+
+        //This function recieves the response of the user-selected button (cancel or delete)
+        [HttpPost]
+        public IActionResult Delete(AppointmentInfo ai)
+        {
+            tsContext.AppointmentInfo.Remove(ai);
+            tsContext.SaveChanges();
+            return RedirectToAction("Signup");
+        }
     }
+
+    
 }

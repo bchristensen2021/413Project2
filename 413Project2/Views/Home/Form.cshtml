@@ -1,7 +1,59 @@
 ﻿@{
     ViewData["Title"] = "Form";
 }
-
+@using Microsoft.AspNetCore.Components
 
 <h3>This is the Form Page</h3>
 
+@model _413Project2.Models.AppointmentInfo
+
+<!--This page displays a form for the user to add a movie to the database.-->
+<h1>Fill Out Form to Add Movie to Database</h1>
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        
+        <label asp-for="TimeSlotId">TimeSlot</label>
+        <select disabled asp-for="TimeSlotId">
+            <option value="">Select a TimeSlot</option>
+            @foreach (TimeSlots t in ViewBag.TimeSlots)
+            {
+                <option value="@t.TimeSlotId">@t.TimeSlotName</option>
+            }
+        </select><br />
+
+        <label asp-for="Name">Group Name</label>
+        <input required asp-for="Name" /><br />
+
+        <label asp-for="GroupSize">Group Size (Max Size: 15)</label>
+        <input max="15" required asp-for="GroupSize" /><br />
+
+        <label asp-for="Email">Email</label>
+        <input required asp-for="Email" /><br />
+
+        <label asp-for="Phone">Phone</label>
+        <input optional asp-for="Phone"/><br />
+        
+        <label hidden asp-for="TimeSlotId"></label>
+        
+        
+
+
+        <!--
+    <label asp-for="Edited">Edited</label>
+    <select asp-for="Edited">
+        <option value="true">Yes</option>
+        <option selected="selected" value="false">No</option>
+    </select><br />
+
+    <label asp-for="LentTo">Lent To: </label>
+    <input asp-for="LentTo" /><br />
+
+    <label asp-for="Notes">Notes: </label>
+    <input maxlength="25" asp-for="Notes" /><br />
+        -->
+
+        <button type="submit">Book Appointment</button>
+    </form>
+</div>
